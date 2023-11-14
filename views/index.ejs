@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Acortador de URLs</title>
+</head>
+<body>
+  <h1>Acortador de URLs</h1>
+
+  <h2>Acortar una URL</h2>
+  <form action="/acortar" method="post">
+    <input type="url" name="originalUrl" placeholder="Ingresa la URL original" required>
+    <button type="submit">Acortar</button>
+  </form>
+
+  <h2>URLs Acortadas</h2>
+  <ul>
+    <% urls.forEach(url => { %>
+      <li>
+        <a href="<%= url.short_url %>" target="_blank"><%= url.short_url %></a> (Original: <a href="<%= url.original_url %>" target="_blank"><%= url.original_url %></a>)
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
